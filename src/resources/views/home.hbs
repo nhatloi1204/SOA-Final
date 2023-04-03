@@ -1,39 +1,54 @@
 <div class='container mx-auto flex flex-col lg:flex-row mt-8'>
-    <div class='w-full lg:w-1/4 px-4'>
-        <div class='flex space-x-2'>
-            <button
-                type='button'
-                class='inline-block rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]'
-            >
-                Button
-            </button>
+    <div class='w-full lg:w-1/5 px-4'>
+        <div class='flex space-x-2 pb-[15px]'>
+            {{>button name='New post'}}
         </div>
         <div class='bg-white shadow-lg rounded-lg px-4 py-6'>
-            <h2 class='text-gray-800 font-bold text-xl mb-4'>Categories</h2>
+            <h2 class='text-gray-800 font-bold text-xl mb-4'>Menu</h2>
             <ul class='divide-y divide-gray-300'>
                 <li class='py-2'>
-                    <a href='#' class='text-gray-600 hover:text-gray-800'>News</a>
+                    <a href='#' class='text-gray-600 hover:text-gray-800'>Your profile</a>
                 </li>
                 <li class='py-2'>
-                    <a href='#' class='text-gray-600 hover:text-gray-800'>Technology</a>
+                    <a href='#' class='text-gray-600 hover:text-gray-800'>Bookmarks</a>
                 </li>
                 <li class='py-2'>
-                    <a href='#' class='text-gray-600 hover:text-gray-800'>Travel</a>
+                    <a href='#' class='text-gray-600 hover:text-gray-800'>Notification</a>
                 </li>
             </ul>
         </div>
     </div>
-    <div class='flex flex-wrap w-3/4 -mx-4'>
-        <div class='w-full md:w-1/3 px-4 mb-8'>
-            {{>postCard}}
+    <div class='w-4/5 -mx-4 px-[10px]'>
+        <div class="flex flex-col">
+            <div class="relative w-[35%]">
+                <form action="#" method="get">
+                    <input class="block w-full py-2 px-4 rounded-lg bg-white border-2 border-gray-300 placeholder-gray-500 focus:outline-none focus:border-blue-500" name="search" placeholder="Search">
+                    <button type="submit" class="absolute right-0 top-0 mt-3 mr-4">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="flex flex-wrap -mx-4 pt-[20px]">
+                <div class='w-full md:w-1/3 px-4 mb-8'>
+                    {{>postCard}}
+                </div>
+                <div class='w-full md:w-1/3 px-4 mb-8'>
+                    {{>postCard}}
+                </div>
+                <div class='w-full md:w-1/3 px-4 mb-8'>
+                    {{>postCard}}
+                </div>
+                <div class='w-full md:w-1/3 px-4 mb-8'>
+                    {{>postCard}}
+                </div>
+                <div class='w-full md:w-1/3 px-4 mb-8'>
+                    {{>postCard}}
+                </div>
+                <div class='w-full md:w-1/3 px-4 mb-8'>
+                    {{>postCard}}
+                </div>
+            </div>
         </div>
-        <div class='w-full md:w-1/3 px-4 mb-8'>
-            {{>postCard}}
-        </div>
-        <div class='w-full md:w-1/3 px-4 mb-8'>
-            {{>postCard}}
-        </div>
-
+        
     </div>
-
 </div>

@@ -1,0 +1,51 @@
+<div class='bg-gray-100'>
+
+    <!-- Main Section -->
+    <main class='container mx-auto py-10'>
+        <div class='grid grid-cols-12 gap-6'>
+            <!-- Left Sidebar -->
+            <div class='col-span-3'>
+                <div class='bg-white rounded-lg p-5 shadow mb-5'>
+                    <img src='https://via.placeholder.com/150' alt='Profile Picture' class='w-full rounded-lg mb-5' />
+                    <h2 class='text-lg font-bold'>User Name</h2>
+                    <p class='text-gray-500 text-sm'>user@email.com</p>
+                    <p class='mt-2'>(this is bio) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel
+                        tellus ut velit varius ultrices.</p>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class='col-span-9'>
+                <!-- User Info -->
+                <div class='bg-white rounded-lg p-5 shadow mb-5'>
+                    <h2 class='text-lg font-bold mb-5'>User Information</h2>
+                    <ul>
+                        <li><span class='font-bold'>Name: </span>User Name</li>
+                        <li><span class='font-bold'>Email: </span>user@email.com</li>
+                        <li><span class='font-bold'>Joined: </span>June 12, 2022</li>
+                    </ul>
+                    {{>button name='Edit profile' class='mt-[10px]'}}
+                </div>
+
+                <!-- User Posts -->
+                <div class='bg-white rounded-lg p-5 shadow mb-5'>
+                    <h2 class='text-lg font-bold mb-5'>User Posts</h2>
+                    <ul>
+                        <li class="py-[10px]">
+                            <a href='#'>Post Title 1</a>
+                            <p class='text-gray-500 text-sm'>June 12, 2022</p>
+                        </li>
+                        <li class="py-[10px]">
+                            <a href='#'>Post Title 2</a>
+                            <p class='text-gray-500 text-sm'>June 13, 2022</p>
+                        </li>
+                        <li class="py-[10px]">
+                            <a href='#'>Post Title 3</a>
+                            <p class='text-gray-500 text-sm'>June 14, 2022</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
