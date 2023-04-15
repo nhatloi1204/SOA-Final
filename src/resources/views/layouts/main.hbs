@@ -4,17 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://img.icons8.com/external-ddara-lineal-color-ddara/64/null/external-woman-laptop-beauty-blogger-influencer-makeup-tutorial-social-life-ddara-lineal-color-ddara.png" type="image/x-icon">
+    
+    {{!-- * pure CSS and tailwindCSS link  --}}
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/tailwind.css">
+    
+    {{!-- * JS link  --}}
     <script defer src="/javascript/script.js" type="module"></script>
+
+    {{!-- * JQuery link  --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    {{!-- * fontawesome link  --}}
     <script src="https://kit.fontawesome.com/e6f15c132f.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>Memory Media</title>
 </head>
 <body>
     {{> header}}
 
-     {{{body}}}
+    {{{body}}}
 
     {{> footer}}
+
+
+    {{!-- * TW JS link  --}}
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+
+    {{!-- * Hotline Script  --}}
+    <script type="text/javascript" src="https://web.cmbliss.com/webtools/hotline/js/hotline.js"></script>
+    <script type="text/javascript">
+        $("body").hotline({phone:"0986822596",p_bottom:true,bottom:0,p_left:true,left:0,bg_color:"#e60808",abg_color:"rgba(230, 8, 8, 0.7)",show_bar:true,position:"fixed",});
+    </script>
 </body>
 </html>

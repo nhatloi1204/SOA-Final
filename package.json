@@ -2,17 +2,18 @@
     "name": "soa-final",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "server.js",
     "scripts": {
-        "server": "nodemon --inspect src/index.js",
-        "css": "npx tailwindcss -i ./src/input.css -o ./src/public/css/tailwind.css --watch",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "server": "nodemon --inspect src/server.js",
+        "css": "npx tailwindcss -i ./src/input.css -o ./src/public/css/tailwind.css --watch"
     },
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "dotenv": "^16.0.3",
         "express": "^4.18.2",
         "express-handlebars": "^7.0.4",
+        "mongoose": "^7.0.3",
         "nodemon": "^2.0.22",
         "prettier": "^2.8.7",
         "tailwindcss": "^3.3.1",

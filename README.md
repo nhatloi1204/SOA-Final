@@ -1,7 +1,7 @@
 
 # Microservice Final Project
 
-A simple application useful for blogging
+A nice social media app where people can share their idea to each other, keep up to date with technology and catch up with their friends.
 
 
 
@@ -47,6 +47,6 @@ Start the server
 
 ## Support
 
-For support, email trinhcamminh@gmail.com
+For support, email trinhcamminh25112002@gmail.com
 
 ![Logo](https://i.postimg.cc/j5m7LHht/logo.png)
