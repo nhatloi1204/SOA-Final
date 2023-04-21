@@ -29,6 +29,20 @@
             <span class='mr-4'><i class='far fa-user'></i> John Doe</span>
             <span class='mr-4'><i class='fa-solid fa-tag'></i> Tag</span>
             <span class='mr-4'><i class='far fa-comment'></i> 2 Comments</span>
+            <button class='mr-4'><i class='fa-regular fa-heart'></i> Like</button>
+            <button class='mr-4'><i class='fa-regular fa-bookmark'></i> Bookmark</button>
+            <!-- Button trigger modal -->
+            <button
+                type='button'
+                class='mr-4'
+                data-te-toggle='modal'
+                data-te-target='#exampleModalScrollable'
+                data-te-ripple-init
+                data-te-ripple-color='light'
+            >
+                <i class='fa-sharp fa-light fa-clock-rotate-left'></i>View edit history
+            </button>
+            {{>viewEditHistory}}
         </div>
 
         <section class='mt-10'>
@@ -69,6 +83,5 @@
                 </form>
             </div>
         </section>
-
     </main>
 </div>
