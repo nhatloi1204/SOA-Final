@@ -337,10 +337,6 @@ body {
     margin-bottom: 24px;
 }
 
-svg {
-    margin-bottom: 16px;
-}
-
 .pao-atras {
     animation: leftright 1s alternate infinite;
     transform-origin: center;
