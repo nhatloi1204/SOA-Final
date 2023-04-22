@@ -6,9 +6,9 @@
             <!-- Left Sidebar -->
             <div class='col-span-3'>
                 <div class='bg-white rounded-lg p-5 shadow mb-5'>
-                    <img src='https://via.placeholder.com/150' alt='Profile Picture' class='w-full rounded-lg mb-5' />
-                    <h2 class='text-lg font-bold'>User Name</h2>
-                    <p class='text-gray-500 text-sm'>user@email.com</p>
+                    <img src={{user.image}} alt='Profile Picture' class='w-full rounded-lg mb-5' />
+                    <h2 class='text-lg font-bold'>{{user.name}}</h2>
+                    <p class='text-gray-500 text-sm'>{{user.email}}</p>
                     <p class='mt-2'>(this is bio) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel
                         tellus ut velit varius ultrices.</p>
                 </div>
@@ -18,13 +18,13 @@
             <div class='col-span-9'>
                 <!-- User Info -->
                 <div class='bg-white rounded-lg p-5 shadow mb-5'>
-                    <h2 class='text-lg font-bold mb-5'>User Information</h2>
+                    <h2 class='text-lg font-bold mb-5'>{{user.name}} Information</h2>
                     <ul>
-                        <li><span class='font-bold'>Name: </span>User Name</li>
-                        <li><span class='font-bold'>Email: </span>user@email.com</li>
-                        <li><span class='font-bold'>Phone Number: </span>0123456789</li>
-                        <li><span class='font-bold'>Joined: </span>June 12, 2022</li>
-                        <li><span class='font-bold'>Updated profile at: </span>June 12, 2022</li>
+                        <li><span class='font-bold'>Name: </span>{{user.name}}</li>
+                        <li><span class='font-bold'>Email: </span>{{user.email}}</li>
+                        <li><span class='font-bold'>Phone Number: </span>{{user.phoneNumber}}</li>
+                        <li><span class='font-bold'>Joined: </span>{{formatDate user.createdAt}}</li>
+                        <li><span class='font-bold'>Updated profile at: </span>{{formatDate user.updatedAt}}</li>
                     </ul>
                     <button
                         type='button'
@@ -170,7 +170,7 @@
 
                 <!-- User Posts -->
                 <div class='bg-white rounded-lg p-5 shadow mb-5'>
-                    <h2 class='text-lg font-bold mb-5'>More from user</h2>
+                    <h2 class='text-lg font-bold mb-5'>More from {{user.name}}</h2>
                     <ul>
                         <li class='py-[10px]'>
                             <a href='#'>Post Title 1</a>

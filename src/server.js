@@ -1,21 +1,57 @@
 require('dotenv').config();
+require('./configs/passport-setup');
 const express = require('express');
 const app = express();
 const hbs = require('express-handlebars');
+const Handlebars = require('handlebars');
 const path = require('path');
+const session = require('express-session');
 const mongoose = require('mongoose');
+const passport = require('passport');
+const cors = require('cors');
+const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access');
 const { userRoutes, adminRoutes } = require('./resources/routes');
 
 //* middleware
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(
+    cors({
+        origin: 'http://localhost:3000',
+        optionsSuccessStatus: 200,
+    }),
+);
+app.use(
+    session({
+        secret: process.env.cookieKey,
+        cookie: { httpOnly: true, secure: false, maxAge: null },
+        resave: false,
+        saveUninitialized: false,
+    }),
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 //* Template Engine
 app.engine(
     'hbs',
     hbs.engine({
         extname: 'hbs',
-        helpers: {},
+        helpers: {
+            //* increasing index by 1 (default start with 0)
+            increaseIndexByOne: (index) => index + 1,
+
+            //* formatting currency to dollar
+            formatCurrency: (price) => {
+                if (price) return price.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1.') + ' $';
+            },
+
+            //* formatting date base on US style
+            formatDate: (date) => {
+                return new Intl.DateTimeFormat('en-us', { dateStyle: 'full', timeStyle: 'long' }).format(date);
+            },
+        },
+        handlebars: allowInsecurePrototypeAccess(Handlebars),
     }),
 );
 app.set('view engine', 'hbs');

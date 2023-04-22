@@ -1,9 +1,28 @@
-// Upload file avatar preview
-function uploadAvatar() {
-    const image = document.getElementById('avatarImg'),
-        input = document.getElementById('avatarFile');
-    input.addEventListener('change', () => {
-        image.src = URL.createObjectURL(input.files[0]);
+import { loginFetch, registerFetch } from './user.js';
+
+$(document).ready(() => {
+    // * handle login functionality
+    $("form[id='login']").submit((e) => {
+        e.preventDefault();
+        const form = new FormData(e.target);
+        const email = form.get('email');
+        const password = form.get('password');
+        loginFetch(email, password);
     });
-}
-uploadAvatar();
+
+    // * handle register functionality
+    $("form[id='register']").submit((e) => {
+        e.preventDefault();
+        const form = new FormData(e.target);
+        const name = form.get('name');
+        const email = form.get('email');
+        const password = form.get('password');
+        const confirmPass = form.get('confirm-password');
+
+        if (password !== confirmPass) {
+            $('.error-container').html(`<strong> ⚠ please make sure your confirm password match </strong>`);
+            return;
+        }
+        registerFetch(name, email, password);
+    });
+});
