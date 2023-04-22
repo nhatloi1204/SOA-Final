@@ -1,22 +1,20 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const bookmarkPostInfo = new Schema(
+const followUser = new Schema(
     {
         userID: {
             type: [mongoose.SchemaTypes.ObjectId],
             ref: 'user',
             required: [true, 'userID must be provided'],
         },
-        postID: {
+        followUserID: {
             type: [mongoose.SchemaTypes.ObjectId],
-            ref: 'post',
-            required: [true, 'postID must be provided'],
+            ref: 'user',
+            required: [true, 'followUserID must be provided'],
         },
     },
-    {
-        timestamps: true,
-    },
+    { timestamps: true },
 );
 
-module.exports = mongoose.model('bookmarkPostInfo', bookmarkPostInfo);
+module.exports = mongoose.model('follow', followUser);
