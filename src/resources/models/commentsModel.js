@@ -16,12 +16,6 @@ const commentSchema = new Schema(
         content: {
             type: String,
             required: true,
-            validator: {
-                validate: function (value) {
-                    return typeof value != Number;
-                },
-                message: (props) => `${props.value} is not a valid content`,
-            },
         },
         like: {
             type: Number,

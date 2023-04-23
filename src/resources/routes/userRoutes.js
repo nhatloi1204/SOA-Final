@@ -20,7 +20,12 @@ router.get('/page/profile', requireAuth, userControllers.profilePage);
 
 router.get('page/changePass', userControllers.changePassPage);
 
-router.get('page/detailPost', userControllers.detailPostPage);
+router.get('/page/new-story', userControllers.newStoryPage);
+router.get('/:ownerName/:postTitle', userControllers.getSinglePost);
+router.post('/publish', requireAuth, userControllers.publishPost);
+
+router.get('/:userID/saved', userControllers.getBookmarkedPost);
+router.get('/:userID/following', userControllers.getFollowingUser);
 
 //* google authentication
 router.get(
