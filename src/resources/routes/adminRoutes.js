@@ -1,12 +1,9 @@
 const router = require('express').Router();
 const { requireAuth } = require('../middleware/authenticatedCheck');
+const { adminControllers } = require('../controllers');
 
-router.get('/', function (req, res) {
-    res.render('admin', { layout: 'admin' });
-});
+router.get('/', adminControllers.loginPage);
 
-router.get('/dashboard', function (req, res) {
-    res.render('dashboard', { layout: 'admin' });
-});
+router.get('/dashboard', adminControllers.homePage);
 
 module.exports = router;
