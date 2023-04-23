@@ -1,6 +1,6 @@
 /* CSS 404 page start*/
 
-@import url('https://fonts.googleapis.com/css?family=Dosis:300,400,500');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @-moz-keyframes rocket-movement {
     100% {
         -moz-transform: translate(1200px, -600px);
@@ -126,7 +126,7 @@ body {
     margin: 0;
     width: 100%;
     height: 100%;
-    font-family: 'Dosis', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 300;
     -webkit-user-select: none;
     /* Safari 3.1+ */
@@ -335,10 +335,6 @@ body {
     text-align: center;
     color: #4b4b62;
     margin-bottom: 24px;
-}
-
-svg {
-    margin-bottom: 16px;
 }
 
 .pao-atras {
@@ -669,3 +665,29 @@ svg {
 }
 
 /* CSS 500 page end */
+
+/* Horizontal Scrolling Tags in home page */
+
+.menu-container {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.menu-container::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, and Opera */
+}
+
+.menu-item {
+    min-width: max-content;
+    font-size: 16px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 2px solid transparent;
+}
+
+.menu-item:hover {
+    border-bottom: 2px solid #333;
+}

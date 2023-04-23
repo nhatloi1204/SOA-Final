@@ -5,6 +5,14 @@ const postModel = require('../models/postModel');
 
 const loginPage = async (req, res) => {
     try {
+        res.render('/admin/login');
+    } catch (error) {
+        res.render('/505page');
+    }
+};
+
+const login = async (req, res) => {
+    try {
         const { name, password } = req.body;
         const user = await adminModel.findOne({ name, password }).lean();
         if (!user) {
@@ -23,7 +31,7 @@ const homePage = async (req, res) => {
         const adminAccounts = await adminModel.find({}).lean();
         const tags = await tagModel.find({}).lean();
         const posts = await postModel.find({ approval: false }).lean();
-        return res.render('user/home', { userAccounts, adminAccounts, tags, posts });
+        return res.render('admin/home', { userAccounts, adminAccounts, tags, posts });
     } catch (error) {
         res.status(500).json(error.message);
     }
@@ -52,6 +60,7 @@ const updateApproveStatus = async (req, res) => {
 
 module.exports = {
     loginPage,
+    login,
     homePage,
     createTag,
     updateApproveStatus,

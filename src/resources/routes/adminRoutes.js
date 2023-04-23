@@ -3,6 +3,7 @@ const router = require('express').Router();
 const { adminControllers } = require('../controllers');
 
 router.get('/', adminControllers.loginPage);
+router.post('/login', adminControllers.login);
 
 router.get('/dashboard', adminControllers.homePage);
 
