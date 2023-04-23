@@ -911,6 +911,10 @@ video {
   margin-top: 3px;
 }
 
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -1628,6 +1632,10 @@ video {
 
 .gap-6 {
   gap: 1.5rem;
+}
+
+.gap-8 {
+  gap: 2rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
@@ -2449,8 +2457,16 @@ video {
   text-transform: uppercase;
 }
 
+.lowercase {
+  text-transform: lowercase;
+}
+
 .normal-case {
   text-transform: none;
+}
+
+.italic {
+  font-style: italic;
 }
 
 .not-italic {
@@ -2681,6 +2697,15 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-neutral-950 {
+  --tw-text-opacity: 1;
+  color: rgb(10 10 10 / var(--tw-text-opacity));
+}
+
+.underline {
+  text-decoration-line: underline;
 }
 
 .no-underline {
@@ -3491,6 +3516,11 @@ video {
   color: rgb(229 231 235 / var(--tw-text-opacity));
 }
 
+.peer:focus ~ .peer-focus\:text-primary {
+  --tw-text-opacity: 1;
+  color: rgb(59 113 202 / var(--tw-text-opacity));
+}
+
 .data-\[te-datepicker-cell-disabled\]\:pointer-events-none[data-te-datepicker-cell-disabled] {
   pointer-events: none;
 }
@@ -3908,6 +3938,16 @@ video {
     color: rgb(255 255 255 / var(--tw-text-opacity));
   }
 
+  .dark\:text-neutral-900 {
+    --tw-text-opacity: 1;
+    color: rgb(23 23 23 / var(--tw-text-opacity));
+  }
+
+  .dark\:text-neutral-950 {
+    --tw-text-opacity: 1;
+    color: rgb(10 10 10 / var(--tw-text-opacity));
+  }
+
   .dark\:shadow-\[0_4px_9px_-4px_rgba\(59\2c 113\2c 202\2c 0\.5\)\] {
     --tw-shadow: 0 4px 9px -4px rgba(59,113,202,0.5);
     --tw-shadow-colored: 0 4px 9px -4px var(--tw-shadow-color);
@@ -3922,6 +3962,16 @@ video {
   .dark\:placeholder\:text-gray-200::placeholder {
     --tw-text-opacity: 1;
     color: rgb(229 231 235 / var(--tw-text-opacity));
+  }
+
+  .dark\:placeholder\:text-neutral-900::-moz-placeholder {
+    --tw-text-opacity: 1;
+    color: rgb(23 23 23 / var(--tw-text-opacity));
+  }
+
+  .dark\:placeholder\:text-neutral-900::placeholder {
+    --tw-text-opacity: 1;
+    color: rgb(23 23 23 / var(--tw-text-opacity));
   }
 
   .dark\:checked\:bg-blue-500:checked {
@@ -3995,6 +4045,11 @@ video {
   .peer:focus ~ .dark\:peer-focus\:text-gray-200 {
     --tw-text-opacity: 1;
     color: rgb(229 231 235 / var(--tw-text-opacity));
+  }
+
+  .peer:focus ~ .dark\:peer-focus\:text-primary {
+    --tw-text-opacity: 1;
+    color: rgb(59 113 202 / var(--tw-text-opacity));
   }
 
   .dark\:data-\[te-input-disabled\]\:bg-zinc-600[data-te-input-disabled] {

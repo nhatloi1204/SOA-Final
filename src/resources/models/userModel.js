@@ -23,7 +23,7 @@ const userSchema = new Schema(
         Bio: {
             type: String,
             default: '',
-        },
+        },  
         phoneNumber: {
             type: Number,
             validate: {
