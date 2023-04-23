@@ -915,6 +915,18 @@ video {
   margin-bottom: 0.75rem;
 }
 
+.mt-\[20px\] {
+  margin-top: 20px;
+}
+
+.mt-\[50px\] {
+  margin-top: 50px;
+}
+
+.mb-\[20px\] {
+  margin-bottom: 20px;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -1261,6 +1273,10 @@ video {
 
 .w-screen {
   width: 100vw;
+}
+
+.w-1\/2 {
+  width: 50%;
 }
 
 .min-w-0 {
@@ -2328,6 +2344,10 @@ video {
 
 .pt-\[20px\] {
   padding-top: 20px;
+}
+
+.pb-\[10px\] {
+  padding-bottom: 10px;
 }
 
 .text-left {
