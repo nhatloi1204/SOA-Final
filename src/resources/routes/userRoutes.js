@@ -20,7 +20,7 @@ router.get('/page/profile', requireAuth, userControllers.profilePage);
 
 router.get('page/changePass', userControllers.changePassPage);
 
-router.get('page/detailPost', userControllers.detailPostPage);
+router.get('/page/detailPost', userControllers.detailPostPage);
 
 //* google authentication
 router.get(
