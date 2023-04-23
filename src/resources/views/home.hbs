@@ -20,13 +20,27 @@
     </div>
     <div class='w-4/5 -mx-4 px-[10px]'>
         <div class="flex flex-col">
-            <div class="relative w-[35%]">
-                <form action="#" method="get">
-                    <input class="block w-full py-2 px-4 rounded-lg bg-white border-2 border-gray-300 placeholder-gray-500 focus:outline-none focus:border-blue-500" name="search" placeholder="Search">
-                    <button type="submit" class="absolute right-0 top-0 mt-3 mr-4">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                </form>
+            <div class="flex">
+                <div class="w-[30%]">
+                    <form action="#" method="get" class="relative">
+                        <input class="block w-full py-2 px-4 rounded-lg bg-white border-2 border-gray-300 placeholder-gray-500 focus:outline-none focus:border-blue-500" name="search" placeholder="Search">
+                        <button type="submit" class="absolute right-0 top-0 mt-3 mr-4">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="flex items-center menu-container overflow-x-scroll no-wrap ml-[20px] w-[65%]">
+                    <div class="menu flex gap-10">
+                        <a href="#" class="flex justify-center items-center menu-item">For you</a>
+                        <a href="#" class="flex justify-center items-center menu-item">Following</a>
+                        <a href="#" class="flex justify-center items-center menu-item">Technology</a>
+                        <a href="#" class="flex justify-center items-center menu-item">Cooking</a>
+                        <a href="#" class="flex justify-center items-center menu-item">Other Tag</a>
+                        <a href="#" class="flex justify-center items-center menu-item">Other Tag</a>
+                        <a href="#" class="flex justify-center items-center menu-item">Other Tag</a>
+                    </div>
+                </div>
             </div>
             <div class="flex flex-wrap -mx-4 pt-[20px]">
                 <div class='w-full md:w-1/3 px-4 mb-8'>
