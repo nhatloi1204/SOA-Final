@@ -9,14 +9,14 @@ const createToken = (user) => {
 
 const homePage = async (req, res) => {
     try {
-        return res.render('home');
+        return res.render('user/home');
     } catch (error) {
         res.status(500).json(error.message);
     }
 };
 
 const loginPage = async (req, res) => {
-    res.render('login');
+    res.render('user/login');
 };
 const login = async (req, res) => {
     try {
@@ -43,7 +43,7 @@ const login = async (req, res) => {
 };
 
 const registerPage = async (req, res) => {
-    res.render('register');
+    res.render('user/register');
 };
 const register = async (req, res) => {
     try {
@@ -64,8 +64,7 @@ const register = async (req, res) => {
 
 const profilePage = async (req, res) => {
     try {
-        // console.log(req.user);
-        return res.render('profile', { user: req.user });
+        return res.render('user/profile', { user: req.user });
     } catch (error) {
         res.status(500).json(error.message);
     }
@@ -73,7 +72,7 @@ const profilePage = async (req, res) => {
 
 const changePassPage = async (req, res) => {
     try {
-        return res.render('changePass');
+        return res.render('user/changePass');
     } catch (error) {
         res.status(500).json(error.message);
     }
@@ -81,7 +80,7 @@ const changePassPage = async (req, res) => {
 
 const detailPostPage = async (req, res) => {
     try {
-        return res.render('detailPost');
+        return res.render('user/detailPost');
     } catch (error) {
         res.status(500).json(error.message);
     }
