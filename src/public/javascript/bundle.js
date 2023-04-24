@@ -10,13 +10,23 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/public/javascript/admin.js":
+/*!****************************************!*\
+  !*** ./src/public/javascript/admin.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"adminLoginFetch\": () => (/* binding */ adminLoginFetch)\n/* harmony export */ });\nconst adminLoginFetch = async (name, password) => {\r\n    await fetch(`http://localhost:3000/admin/login`, {\r\n        method: 'POST',\r\n        headers: { 'Content-Type': 'application/json' },\r\n        body: JSON.stringify({ name, password }),\r\n        redirect: 'follow'\r\n    }).then((response) => {\r\n        if (response.redirected) {\r\n            window.location.href = response.url;\r\n        }\r\n    });\r\n};\r\n\n\n//# sourceURL=webpack://soa-final/./src/public/javascript/admin.js?");
+
+/***/ }),
+
 /***/ "./src/public/javascript/script.js":
 /*!*****************************************!*\
   !*** ./src/public/javascript/script.js ***!
   \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _user_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./user.js */ \"./src/public/javascript/user.js\");\n\r\n\r\n$(document).ready(() => {\r\n    // * handle login functionality\r\n    $(\"form[id='login']\").submit((e) => {\r\n        e.preventDefault();\r\n        const form = new FormData(e.target);\r\n        const email = form.get('email');\r\n        const password = form.get('password');\r\n        (0,_user_js__WEBPACK_IMPORTED_MODULE_0__.loginFetch)(email, password);\r\n    });\r\n\r\n    // * handle register functionality\r\n    $(\"form[id='register']\").submit((e) => {\r\n        e.preventDefault();\r\n        const form = new FormData(e.target);\r\n        const name = form.get('name');\r\n        const email = form.get('email');\r\n        const password = form.get('password');\r\n        const confirmPass = form.get('confirm-password');\r\n\r\n        if (password !== confirmPass) {\r\n            $('.error-container').html(`<strong> ⚠ please make sure your confirm password match </strong>`);\r\n            return;\r\n        }\r\n        (0,_user_js__WEBPACK_IMPORTED_MODULE_0__.registerFetch)(name, email, password);\r\n    });\r\n});\r\n\n\n//# sourceURL=webpack://soa-final/./src/public/javascript/script.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _user_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./user.js */ \"./src/public/javascript/user.js\");\n/* harmony import */ var _admin_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./admin.js */ \"./src/public/javascript/admin.js\");\n\r\n\r\n\r\n$(document).ready(() => {\r\n    // * handle login functionality\r\n    $(\"form[id='login']\").submit((e) => {\r\n        e.preventDefault();\r\n        const form = new FormData(e.target);\r\n        const email = form.get('email');\r\n        const password = form.get('password');\r\n        (0,_user_js__WEBPACK_IMPORTED_MODULE_0__.loginFetch)(email, password);\r\n    });\r\n\r\n    // * handle register functionality\r\n    $(\"form[id='register']\").submit((e) => {\r\n        e.preventDefault();\r\n        const form = new FormData(e.target);\r\n        const name = form.get('name');\r\n        const email = form.get('email');\r\n        const password = form.get('password');\r\n        const confirmPass = form.get('confirm-password');\r\n\r\n        if (password !== confirmPass) {\r\n            $('.error-container').html(`<strong> ⚠ please make sure your confirm password match </strong>`);\r\n            return;\r\n        }\r\n        (0,_user_js__WEBPACK_IMPORTED_MODULE_0__.registerFetch)(name, email, password);\r\n    });\r\n\r\n    //* handle admin login functionality\r\n    $(\"form[id='adminLogin']\").submit((e) => {\r\n        e.preventDefault();\r\n        const form = new FormData(e.target);\r\n        const name = form.get('adminName');\r\n        const password = form.get('adminPassword');\r\n        (0,_admin_js__WEBPACK_IMPORTED_MODULE_1__.adminLoginFetch)(name, password);\r\n    });\r\n});\r\n\n\n//# sourceURL=webpack://soa-final/./src/public/javascript/script.js?");
 
 /***/ }),
 

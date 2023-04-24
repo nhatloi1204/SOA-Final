@@ -24,7 +24,7 @@ app.use(
 app.use(
     session({
         secret: process.env.cookieKey,
-        cookie: { httpOnly: true, secure: false, maxAge: null },
+        cookie: { httpOnly: true, secure: false, maxAge: 1000 * 60 * 60 * 24 },
         resave: false,
         saveUninitialized: false,
     }),
@@ -58,8 +58,8 @@ app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources/views'));
 
 //* Routes
-app.use('/', userRoutes);
 app.use('/admin', adminRoutes);
+app.use('/', userRoutes);
 
 //* Start server
 mongoose.set('strictQuery', true);

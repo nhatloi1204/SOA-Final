@@ -2,21 +2,9 @@ require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const userModel = require('../models/userModel');
 
-// * used for people who authenticated by Google
-const authCheck = (req, res, next) => {
-    console.log(req.first, req.second);
-    if (!req.first) {
-        console.log('false');
-        res.redirect('/page/login');
-    } else {
-        console.log('true');
-        next();
-    }
-};
-
-// * used for people who authenticated by Email and Password
+// * used for people who is authenticated as User
 const requireAuth = async (req, res, next) => {
-    if (!req.user) {
+    if (!req.session.user) {
         const { authorization } = req.headers;
 
         if (!authorization) return res.redirect('/page/login');
@@ -35,8 +23,16 @@ const requireAuth = async (req, res, next) => {
         next();
     }
 };
+// * used for people who is authenticated as Admin or Staff
+const adminRequireAuth = async (req, res, next) => {
+    if (!req.session.user) {
+        return res.render('admin/login', { layout: 'admin' });
+    } else {
+        next();
+    }
+};
 
 module.exports = {
-    authCheck,
     requireAuth,
+    adminRequireAuth,
 };

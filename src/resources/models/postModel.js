@@ -41,6 +41,7 @@ const postSchema = new Schema(
             type: String,
             required: [true, 'content must be provided'],
         },
+        thumbnail: String,
         approval: {
             type: Boolean,
             default: false,

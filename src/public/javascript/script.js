@@ -1,4 +1,5 @@
 import { loginFetch, registerFetch } from './user.js';
+import { adminLoginFetch } from './admin.js';
 
 $(document).ready(() => {
     // * handle login functionality
@@ -24,5 +25,14 @@ $(document).ready(() => {
             return;
         }
         registerFetch(name, email, password);
+    });
+
+    //* handle admin login functionality
+    $("form[id='adminLogin']").submit((e) => {
+        e.preventDefault();
+        const form = new FormData(e.target);
+        const name = form.get('adminName');
+        const password = form.get('adminPassword');
+        adminLoginFetch(name, password);
     });
 });
