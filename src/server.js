@@ -48,7 +48,12 @@ app.engine(
 
             //* formatting date base on US style
             formatDate: (date) => {
-                return new Intl.DateTimeFormat('en-us', { dateStyle: 'full', timeStyle: 'long' }).format(date);
+                return new Intl.DateTimeFormat('en-us', { dateStyle: 'short', timeStyle: 'short' }).format(date);
+            },
+
+            //* transform post title
+            transformTitle: (title) => {
+                return title.replace(' ', '-');
             },
         },
         handlebars: allowInsecurePrototypeAccess(Handlebars),

@@ -1,25 +1,40 @@
 <div class='flex flex-col gap-8 items-center'>
-    {{!-- * Title Input  --}}
-    <div class='relative mb-3 w-1/2 mt-[50px]' data-te-input-wrapper-init>
-        <input
-            type='text'
-            class='peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-950 dark:placeholder:text-neutral-900 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0'
-            id='exampleFormControlInput1'
-            placeholder='Enter your title'
-        />
-        <label
-            for='exampleFormControlInput1'
-            class='pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-950 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-900 dark:peer-focus:text-primary'
-        >Title
-        </label>
-    </div>
+        <form id="formFile">
+            <div class="mb-3">
+            <label
+                for="formFile"
+                class="mb-2 inline-block text-neutral-700 dark:text-neutral-200"
+                >Default file input example</label
+            >
+            <input
+                class="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
+                type="file"
+                name="thumbnail"
+                id="formFile" />
+            </div>
+        </form>
+        {{!-- * Title Input  --}}
+        <div class='relative mb-3 w-1/2 mt-[50px]' data-te-input-wrapper-init>
+            <input
+                type='text'
+                class='peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-950 dark:placeholder:text-neutral-900 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0'
+                id='exampleFormControlInput1'
+                placeholder='Enter your title'
+                name="title"
+            />
+            <label
+                for='exampleFormControlInput1'
+                class='pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-950 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-900 dark:peer-focus:text-primary'
+            >Title
+            </label>
+        </div>
 
-    {{!-- * CKEditor 5  --}}
-    <div id='container'>
-        <div id='editor'></div>
-    </div>
+        {{!-- * CKEditor 5  --}}
+        <div id='container'>
+            <div id='editor'></div>
+        </div>
 
-    {{>button name='PUBLISH' class='mb-[20px]'}}
+        {{>button name='PUBLISH' class='publish mb-[20px]'}}
 </div>
 
 <!--
@@ -32,6 +47,7 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/super-build/translations/es.js"></script>
 -->
 <script>
+    let editor
     // This sample still does not showcase all CKEditor 5 features (!)
     // Visit https://ckeditor.com/docs/ckeditor5/latest/features/index.html to browse all the features.
     CKEDITOR.ClassicEditor.create(document.getElementById("editor"), {
@@ -77,7 +93,7 @@
             ]
         },
         // https://ckeditor.com/docs/ckeditor5/latest/features/editor-placeholder.html#using-the-editor-configuration
-        placeholder: 'Welcome to CKEditor 5!',
+        placeholder: 'Write your post here',
         // https://ckeditor.com/docs/ckeditor5/latest/features/font.html#configuring-the-font-family-feature
         fontFamily: {
             options: [
@@ -179,5 +195,32 @@
             'FormatPainter',
             'TableOfContents'
         ]
+    }).then(newEditor => {
+        editor = newEditor
+        console.log('editor initialized success 🥰');
+    }).catch(error => {
+        console.error(error);
     });
+
+    const button = document.querySelector('.publish')
+    button.addEventListener('click', async () => {
+        const title = document.querySelector("input[name='title']").value
+        const content = editor.getData();
+        const ownerID = JSON.parse(sessionStorage.getItem('user'))
+        const category = 'Technology'
+        const thumbnail = 'https://cdn.discordapp.com/attachments/862636773099044875/1099351058305790012/SOA-Final.drawio.png'
+
+        const test = document.querySelector("form[id='formFile']");
+        const form = new FormData(test);
+        console.log(form.get('thumbnail'));
+
+        {{!-- await fetch(`/publish`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({owner: ownerID._id, title, category, content, thumbnail})
+        }) --}}
+
+        {{!-- location.href = 'http://localhost:3000/'; --}}
+
+    })
 </script>

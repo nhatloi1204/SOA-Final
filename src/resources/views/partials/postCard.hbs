@@ -1,13 +1,14 @@
 <div class='bg-white shadow-lg rounded-lg overflow-hidden'>
-    <img src='https://via.placeholder.com/300x200' alt='Blog Post' class='w-full h-48 object-cover' />
+    <img src={{thumbnail}} alt={{title}} class='w-full h-48 object-cover' />
     <div class='px-4 py-4'>
-        <h3 class='text-gray-800 font-bold text-xl mb-2'><a href='#'>Blog Post Title</a></h3>
+        <h3 class='text-gray-800 font-bold text-xl mb-2'><a href='#'>{{title}}</a></h3>
         <p class='text-gray-600 text-base'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis placerat
             odio, in ultricies velit. Duis eu imperdiet eros.
         </p>
+        {{!-- <p class='text-gray-600 text-base'>{{{content}}} --}}
     </div>
     <div class='flex justify-between px-4 py-2 bg-gray-100'>
-        <span class='text-xs text-gray-600'>Posted on March 28, 2023</span>
-        <span class='text-xs text-gray-600'>blogger's name</span>
+        <span class='text-xs text-gray-600'>Posted on {{formatDate date}}</span>
+        <span class='text-xs text-gray-600'>{{owner.[0].name}}</span>
     </div>
 </div>

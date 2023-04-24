@@ -47,3 +47,4 @@ export const logout = async () => {
     sessionStorage.removeItem('user');
     sessionStorage.removeItem('token');
 };
+

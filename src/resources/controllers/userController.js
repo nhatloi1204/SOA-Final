@@ -13,7 +13,9 @@ const createToken = (user) => {
 
 const homePage = async (req, res) => {
     try {
-        return res.render('user/home', {user: req.session.user});
+        //! find only those post"s approval is true
+        const posts = await postModel.find({}).populate('owner').lean();
+        return res.render('user/home', { user: req.session.user, posts });
     } catch (error) {
         res.status(500).json(error.message);
     }
@@ -105,7 +107,7 @@ const publishPost = async (req, res) => {
     //! so we can find it in db using req.query
     try {
         const { owner, title, category, content, thumbnail } = req.body;
-        const data = await postModel.create({ owner, title, category, content, thumbnail });
+        const data = await postModel.create({ owner, title: title.toLowerCase(), category, content, thumbnail });
         return res.status(200).json(data);
     } catch (error) {
         return res.status(500).json(error.message);
@@ -123,7 +125,7 @@ const bookmarkedPage = async (req, res) => {
     try {
         const userID = req.query.userID;
         await bookmarkPostModel.find({ userID }).populate('postID').lean();
-        return res.status(200).render('user/bookmark')
+        return res.status(200).render('user/bookmark');
     } catch (error) {
         return res.status(500).json(error.message);
     }
@@ -133,7 +135,7 @@ const followUserPage = async (req, res) => {
     try {
         const userID = req.query.userID;
         await followUserModel.find({ userID }).populate('postID').lean();
-        return res.status(200).render('user/follow')
+        return res.status(200).render('user/follow');
     } catch (error) {
         return res.status(500).json(error.message);
     }
