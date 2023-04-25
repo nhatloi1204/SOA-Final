@@ -1,15 +1,23 @@
 {{>adminHeader}}
-<div class='bg-gray-100 h-full pt-[20px]'>
+<div class='bg-gray-100 pt-[20px]'>
     <div class='flex flex-row'>
         <!-- Left sidebar -->
         <div class='bg-white shadow h-[0%] w-[12.5%] rounded-lg my-6 ml-[10px]'>
             <div class='p-4'>
                 <h2 class='text-lg font-bold mb-4'>Manage</h2>
                 <ul class='space-y-2'>
-                    <li><a href='#' class='text-gray-700 hover:text-blue-500'><i class="fa-solid pr-[10px] fa-newspaper"></i>Posts</a></li>
-                    <li><a href='#' class='text-gray-700 hover:text-blue-500'><i class='fa-solid pr-[10px] fa-tag'></i>Tags</a></li>
-                    <li><a href='#' class='text-gray-700 hover:text-blue-500'><i class="fa-solid pr-[10px] fa-user"></i>Users</a></li>
-                    <li><a href='#' class='text-gray-700 hover:text-blue-500'><i class="fa-solid pr-[10px] fa-users-gear"></i>Staffs</a></li>
+                    <li><a href='#' class='text-gray-700 hover:text-blue-500'><i
+                                class='fa-solid pr-[10px] fa-newspaper'
+                            ></i>Posts</a></li>
+                    <li><a href='#' class='text-gray-700 hover:text-blue-500'><i
+                                class='fa-solid pr-[10px] fa-tag'
+                            ></i>Tags</a></li>
+                    <li><a href='#' class='text-gray-700 hover:text-blue-500'><i
+                                class='fa-solid pr-[10px] fa-user'
+                            ></i>Users</a></li>
+                    <li><a href='#' class='text-gray-700 hover:text-blue-500'><i
+                                class='fa-solid pr-[10px] fa-users-gear'
+                            ></i>Staffs</a></li>
                 </ul>
             </div>
         </div>
@@ -20,36 +28,28 @@
                 <div class='bg-white shadow rounded-lg p-4'>
                     <h2 class='text-2xl font-bold mb-4'>Pending posts</h2>
                     <div class='flex flex-col'>
-                        <div class='overflow-x-auto overflow-y-auto h-60 sm:-mx-6 lg:-mx-8'>
+                        <div class='overflow-x-auto overflow-y-auto max-h-60 sm:-mx-6 lg:-mx-8'>
                             <div class='inline-block min-w-full py-2 sm:px-6 lg:px-8'>
                                 <div class='overflow-hidden'>
                                     <table class='min-w-full text-left text-sm font-light'>
                                         <thead class='border-b font-medium dark:border-neutral-500'>
                                             <tr>
                                                 <th scope='col' class='px-6 py-4'>#</th>
-                                                <th scope='col' class='px-6 py-4'>First</th>
-                                                <th scope='col' class='px-6 py-4'>Last</th>
-                                                <th scope='col' class='px-6 py-4'>Handle</th>
+                                                <th scope='col' class='px-6 py-4'>Full name</th>
+                                                <th scope='col' class='px-6 py-4'>Title</th>
+                                                <th scope='col' class='px-6 py-4'>Post date</th>
+                                                <th scope='col' class='px-6 py-4'>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr class='border-b dark:border-neutral-500'>
                                                 <td class='whitespace-nowrap px-6 py-4 font-medium'>1</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>Mark</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>Otto</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>@mdo</td>
-                                            </tr>
-                                            <tr class='border-b dark:border-neutral-500'>
-                                                <td class='whitespace-nowrap px-6 py-4 font-medium'>2</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>Jacob</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>Thornton</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>@fat</td>
-                                            </tr>
-                                            <tr class='border-b dark:border-neutral-500'>
-                                                <td class='whitespace-nowrap px-6 py-4 font-medium'>3</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>Larry</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>Wild</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>@twitter</td>
+                                                <td class='whitespace-nowrap px-6 py-4'>Nhat Loi</td>
+                                                <td class='whitespace-nowrap px-6 py-4'>dm DHP</td>
+                                                <td class='whitespace-nowrap px-6 py-4'>23.4.23</td>
+                                                <td class='whitespace-nowrap px-6 py-4'><button><i
+                                                            class='fa-regular fa-eye'
+                                                        ></i></button></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -59,41 +59,197 @@
                     </div>
                 </div>
             </div>
+
             <div class='w-full px-4 py-6'>
                 <div class='bg-white shadow rounded-lg p-4'>
                     <h2 class='text-2xl font-bold mb-4'>Approved posts</h2>
                     <div class='flex flex-col'>
-                        <div class='overflow-x-auto overflow-y-auto h-60 sm:-mx-6 lg:-mx-8'>
+                        <div class='overflow-x-auto overflow-y-auto max-h-60 sm:-mx-6 lg:-mx-8'>
                             <div class='inline-block min-w-full py-2 sm:px-6 lg:px-8'>
                                 <div class='overflow-hidden'>
                                     <table class='min-w-full text-left text-sm font-light'>
                                         <thead class='border-b font-medium dark:border-neutral-500'>
                                             <tr>
                                                 <th scope='col' class='px-6 py-4'>#</th>
-                                                <th scope='col' class='px-6 py-4'>First</th>
-                                                <th scope='col' class='px-6 py-4'>Last</th>
-                                                <th scope='col' class='px-6 py-4'>Handle</th>
+                                                <th scope='col' class='px-6 py-4'>Full name</th>
+                                                <th scope='col' class='px-6 py-4'>Title</th>
+                                                <th scope='col' class='px-6 py-4'>Post date</th>
+                                                <th scope='col' class='px-6 py-4'>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr class='border-b dark:border-neutral-500'>
                                                 <td class='whitespace-nowrap px-6 py-4 font-medium'>1</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>Mark</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>Otto</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>@mdo</td>
+                                                <td class='whitespace-nowrap px-6 py-4'>Nhat Loi</td>
+                                                <td class='whitespace-nowrap px-6 py-4'>dm DHP</td>
+                                                <td class='whitespace-nowrap px-6 py-4'>23.4.23</td>
+                                                <td class='whitespace-nowrap px-6 py-4'><button><i
+                                                            class='fa-regular fa-trash-can'
+                                                        ></i></button></td>
                                             </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class='w-full px-4 py-6'>
+                <div class='bg-white shadow rounded-lg p-4'>
+                    <h2 class='text-2xl font-bold mb-4'>Tags</h2>
+                    {{>button name='Add tag'}}
+                    <div class='flex flex-col'>
+                        <div class='overflow-x-auto overflow-y-auto max-h-60 sm:-mx-6 lg:-mx-8'>
+                            <div class='inline-block min-w-full py-2 sm:px-6 lg:px-8'>
+                                <div class='overflow-hidden'>
+                                    <table class='min-w-full text-left text-sm font-light'>
+                                        <thead class='border-b font-medium dark:border-neutral-500'>
+                                            <tr>
+                                                <th scope='col' class='px-6 py-4'>#</th>
+                                                <th scope='col' class='px-6 py-4'>Name</th>
+                                                <th scope='col' class='px-6 py-4'>Updated date</th>
+                                                <th scope='col' class='px-6 py-4'>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
                                             <tr class='border-b dark:border-neutral-500'>
-                                                <td class='whitespace-nowrap px-6 py-4 font-medium'>2</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>Jacob</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>Thornton</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>@fat</td>
+                                                <td class='whitespace-nowrap px-6 py-4 font-medium'>1</td>
+                                                <td class='whitespace-nowrap px-6 py-4'>Technology</td>
+                                                <td class='whitespace-nowrap px-6 py-4'>23.4.23</td>
+                                                <td class='whitespace-nowrap px-6 py-4'><button><i
+                                                            class='fa-regular fa-trash-can pr-4'
+                                                        ></i></button>
+                                                    <button><i
+                                                            class='fa-regular fa-pen-to-square pr-14'
+                                                        ></i></button></td>
                                             </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class='w-full px-4 py-6'>
+                <div class='bg-white shadow rounded-lg p-4'>
+                    <h2 class='text-2xl font-bold mb-4'>All users</h2>
+                    <div class='flex flex-col'>
+                        <div class='overflow-x-auto overflow-y-auto max-h-60 sm:-mx-6 lg:-mx-8'>
+                            <div class='inline-block min-w-full py-2 sm:px-6 lg:px-8'>
+                                <div class='overflow-hidden'>
+                                    <table class='min-w-full text-left text-sm font-light'>
+                                        <thead class='border-b font-medium dark:border-neutral-500'>
+                                            <tr>
+                                                <th scope='col' class='px-6 py-4'>#</th>
+                                                <th scope='col' class='px-6 py-4'>Full Name</th>
+                                                <th scope='col' class='px-6 py-4'>Email</th>
+                                                <th scope='col' class='px-6 py-4'>Joined at</th>
+                                                <th scope='col' class='px-6 py-4'>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
                                             <tr class='border-b dark:border-neutral-500'>
-                                                <td class='whitespace-nowrap px-6 py-4 font-medium'>3</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>Larry</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>Wild</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>@twitter</td>
+                                                <td class='whitespace-nowrap px-6 py-4 font-medium'>1</td>
+                                                <td class='whitespace-nowrap px-6 py-4'>Nhat Loi</td>
+                                                <td class='whitespace-nowrap px-6 py-4'>nhatloi@gmail.com</td>
+                                                <td class='whitespace-nowrap px-6 py-4'>@23.4.23</td>
+                                                <td class='whitespace-nowrap px-6 py-4'><button><i
+                                                            class='fa-regular fa-eye pr-4'
+                                                        ></i></button><button><i
+                                                            class='fa-solid fa-lock pr-4'
+                                                        ></i></button>
+                                                </td>
                                             </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class='w-full px-4 py-6'>
+                <div class='bg-white shadow rounded-lg p-4'>
+                    <h2 class='text-2xl font-bold mb-4'>Locked users</h2>
+                    <div class='flex flex-col'>
+                        <div class='overflow-x-auto overflow-y-auto max-h-60 sm:-mx-6 lg:-mx-8'>
+                            <div class='inline-block min-w-full py-2 sm:px-6 lg:px-8'>
+                                <div class='overflow-hidden'>
+                                    <table class='min-w-full text-left text-sm font-light'>
+                                        <thead class='border-b font-medium dark:border-neutral-500'>
+                                            <tr>
+                                                <th scope='col' class='px-6 py-4'>#</th>
+                                                <th scope='col' class='px-6 py-4'>Full Name</th>
+                                                <th scope='col' class='px-6 py-4'>Email</th>
+                                                <th scope='col' class='px-6 py-4'>Joined at</th>
+                                                <th scope='col' class='px-6 py-4'>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class='border-b dark:border-neutral-500'>
+                                                <td class='whitespace-nowrap px-6 py-4 font-medium'>1</td>
+                                                <td class='whitespace-nowrap px-6 py-4'>Nhat Loi</td>
+                                                <td class='whitespace-nowrap px-6 py-4'>nhatloi@gmail.com</td>
+                                                <td class='whitespace-nowrap px-6 py-4'>@23.4.23</td>
+                                                <td class='whitespace-nowrap px-6 py-4'><button><i
+                                                            class='fa-regular fa-eye pr-4'
+                                                        ></i></button><button><i
+                                                            class='fa-solid fa-unlock pr-4'
+                                                        ></i></button>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class='w-full px-4 py-6'>
+                <div class='bg-white shadow rounded-lg p-4'>
+                    <h2 class='text-2xl font-bold mb-4'>Staffs</h2>
+                    {{>button name='Add staff'}}
+                    <div class='flex flex-col'>
+                        <div class='overflow-x-auto overflow-y-auto max-h-60 sm:-mx-6 lg:-mx-8'>
+                            <div class='inline-block min-w-full py-2 sm:px-6 lg:px-8'>
+                                <div class='overflow-hidden'>
+                                    <table class='min-w-full text-left text-sm font-light'>
+                                        <thead class='border-b font-medium dark:border-neutral-500'>
+                                            <tr>
+                                                <th scope='col' class='px-6 py-4'>#</th>
+                                                <th scope='col' class='px-6 py-4'>Full Name</th>
+                                                <th scope='col' class='px-6 py-4'>Role</th>
+                                                <th scope='col' class='px-6 py-4'>Added at</th>
+                                                <th scope='col' class='px-6 py-4'>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class='border-b dark:border-neutral-500'>
+                                                <td class='whitespace-nowrap px-6 py-4 font-medium'>1</td>
+                                                <td class='whitespace-nowrap px-6 py-4'>Nhat Loi</td>
+                                                <td class='whitespace-nowrap px-6 py-4'>Post staff</td>
+                                                <td class='whitespace-nowrap px-6 py-4'>23.4.23</td>
+                                                <td class='whitespace-nowrap px-6 py-4'><button><i
+                                                            class='fa-regular fa-eye pr-4'
+                                                        ></i></button><button><i
+                                                            class='fa-regular fa-pen-to-square pr-4'
+                                                        ></i></button><button><i
+                                                            class='fa-regular fa-trash-can pr-4'
+                                                        ></i></button>
+                                                </td>
+                                            </tr>
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -103,6 +259,29 @@
                 </div>
             </div>
         </div>
-
     </div>
+    <button
+        id='btn-back-to-top'
+        type='button'
+        data-te-ripple-init
+        data-te-ripple-color='light'
+        class='fixed bottom-5 left-5 inline-block rounded-full bg-danger p-2 uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#dc4c64] transition duration-150 ease-in-out hover:bg-danger-600 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)]'
+    >
+        <svg
+            xmlns='http://www.w3.org/2000/svg'
+            viewBox='0 0 24 24'
+            fill='currentColor'
+            stroke-width='2.5'
+            stroke='currentColor'
+            class='h-4 w-4'
+        >
+            <path
+                fill-rule='evenodd'
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                d='M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75'
+                clip-rule='evenodd'
+            />
+        </svg>
+    </button>
 </div>
