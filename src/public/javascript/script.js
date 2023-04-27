@@ -1,10 +1,12 @@
 import { loginFetch, registerFetch } from './user.js';
 import { adminLoginFetch } from './admin.js';
+import { scrollFunction } from './other.js';
 
 $(document).ready(() => {
     // * handle login functionality
     $("form[id='login']").submit((e) => {
         e.preventDefault();
+        console.log('hhh');
         const form = new FormData(e.target);
         const email = form.get('email');
         const password = form.get('password');
@@ -34,5 +36,9 @@ $(document).ready(() => {
         const name = form.get('adminName');
         const password = form.get('adminPassword');
         adminLoginFetch(name, password);
+    });
+
+    $(window).scroll(() => {
+        scrollFunction();
     });
 });

@@ -25,7 +25,7 @@ const requireAuth = async (req, res, next) => {
 };
 // * used for people who is authenticated as Admin or Staff
 const adminRequireAuth = async (req, res, next) => {
-    if (!req.session.user) {
+    if (!req.session.adminUser) {
         return res.render('admin/login', { layout: 'admin' });
     } else {
         next();

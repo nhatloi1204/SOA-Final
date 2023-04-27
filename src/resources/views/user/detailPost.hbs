@@ -3,34 +3,21 @@
     <!-- Main Section -->
     <main class='mx-[60px] py-10 px-4'>
         <!-- Post Title -->
-        <h1 class='text-3xl font-bold mb-5'>Post Title Here</h1>
+        <h1 class='text-3xl font-bold mb-5'>{{post.title}}</h1>
 
         <!-- Post Content -->
         <div class='prose max-w-full'>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel tellus ut velit varius ultrices.
-                Praesent et posuere ante. Donec semper nisi eu nulla bibendum, sit amet iaculis nisl convallis. Sed
-                vestibulum mi sed nunc rhoncus, at convallis mauris tincidunt. Sed pulvinar libero vel justo posuere, eu
-                aliquet leo consectetur. Morbi in enim in arcu vulputate ultricies. Nulla facilisi.</p>
-            <p>Proin molestie, purus ut tincidunt scelerisque, est lacus varius velit, sit amet malesuada ipsum tellus a
-                sapien. Duis suscipit semper ligula, a ullamcorper erat interdum ut. Nullam rhoncus risus non lorem
-                placerat, vel blandit nulla molestie. Aenean consequat, purus nec euismod fringilla, justo odio
-                scelerisque eros, sit amet feugiat ipsum eros vitae elit. Duis ac ante pharetra, lobortis sapien vel,
-                auctor lorem. Donec sed faucibus magna.</p>
-            <p>Phasellus aliquam malesuada urna vitae maximus. Vestibulum cursus, felis in auctor bibendum, dolor nibh
-                dapibus nibh, eu blandit sapien lacus sed purus. Donec tristique est quis augue lobortis, ac ultrices
-                risus maximus. Sed ultrices, dolor sed consequat sollicitudin, quam lorem posuere nulla, in volutpat
-                risus augue vel turpis. Maecenas pharetra nisi nunc, nec bibendum justo elementum vel. Integer quis
-                imperdiet lorem.</p>
+            {{{post.content}}}
         </div>
 
         <!-- Post Metadata -->
         <div class='mt-5 text-gray-500 text-sm'>
-            <span class='mr-4'><i class='far fa-calendar-alt'></i> June 12, 2022</span>
-            <span class='mr-4'><i class='far fa-user'></i> John Doe</span>
-            <span class='mr-4'><i class='fa-solid fa-tag'></i> Tag</span>
-            <span class='mr-4'><i class='far fa-comment'></i> 2 Comments</span>
-            <button class='mr-4'><i class='fa-regular fa-heart'></i> Like</button>
-            <button class='mr-4'><i class='fa-regular fa-bookmark'></i> Bookmark</button>
+            <span class='mr-4'><i class='far fa-calendar-alt mr-2'></i>{{formatDate post.createdAt}}</span>
+            <span class='mr-4'><i class='far fa-user mr-2'></i>{{post.owner.0.name}}</span>
+            <span class='mr-4'><i class='fa-solid fa-tag mr-2'></i>{{post.category}}</span>
+            <span class='mr-4'><i class='far fa-comment mr-2'></i> 2 Comments</span>
+            <button class='mr-4'><i class='fa-regular fa-heart mr-2'></i>{{post.like}}</button>
+            <button class='mr-4'><i class='fa-regular fa-bookmark mr-2'></i> Bookmark</button>
             <!-- Button trigger modal -->
             <button
                 type='button'

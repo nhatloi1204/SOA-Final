@@ -1,14 +1,9 @@
 <div class='bg-white shadow-lg rounded-lg overflow-hidden'>
     <img src={{thumbnail}} alt={{title}} class='w-full h-48 object-cover' />
     <div class='px-4 py-4'>
-        <h3 class='text-gray-800 font-bold text-xl mb-2'><a href='#'>{{title}}</a></h3>
-        <p class='text-gray-600 text-base line-clamp-3'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-            quis placerat odio, in ultricies velit. Duis eu imperdiet eros. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Cumque non commodi inventore blanditiis ab officia incidunt eveniet eos at voluptatem,
-            natus sequi ducimus perspiciatis sunt molestiae aliquid laudantium vero nihil!
-        </p>
-        <a href='#' class='block pt-[15px] font-bold underline text-red-500'>Read more</a>
-        {{!-- <p class='text-gray-600 text-base'>{{{content}}} --}}
+        <h3 class='text-gray-800 font-bold text-xl mb-2'><a href={{transformTitle title=title name=owner.0.name}}>{{title}}</a></h3>
+        <div class='text-gray-600 text-base line-clamp-3'>{{{content}}}</div>
+        <a href={{transformTitle title=title name=owner.0.name}} class='block pt-[15px] font-bold text-red-500'>Read more</a>
     </div>
     <div class='flex justify-between px-4 py-2 bg-gray-100'>
         <span class='text-xs text-gray-600'>Posted on {{formatDate date}}</span>

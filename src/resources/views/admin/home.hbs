@@ -39,55 +39,29 @@
                                                 <th scope='col' class='px-6 py-4'>Title</th>
                                                 <th scope='col' class='px-6 py-4'>Post date</th>
                                                 <th scope='col' class='px-6 py-4'>Action</th>
+                                                <th scope='col' class='px-6 py-4'>Approve</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class='border-b dark:border-neutral-500'>
-                                                <td class='whitespace-nowrap px-6 py-4 font-medium'>1</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>Nhat Loi</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>dm DHP</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>23.4.23</td>
-                                                <td class='whitespace-nowrap px-6 py-4'><button><i
-                                                            class='fa-regular fa-eye'
-                                                        ></i></button></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class='w-full px-4 py-6'>
-                <div class='bg-white shadow rounded-lg p-4'>
-                    <h2 class='text-2xl font-bold mb-4'>Approved posts</h2>
-                    <div class='flex flex-col'>
-                        <div class='overflow-x-auto overflow-y-auto max-h-60 sm:-mx-6 lg:-mx-8'>
-                            <div class='inline-block min-w-full py-2 sm:px-6 lg:px-8'>
-                                <div class='overflow-hidden'>
-                                    <table class='min-w-full text-left text-sm font-light'>
-                                        <thead class='border-b font-medium dark:border-neutral-500'>
-                                            <tr>
-                                                <th scope='col' class='px-6 py-4'>#</th>
-                                                <th scope='col' class='px-6 py-4'>Full name</th>
-                                                <th scope='col' class='px-6 py-4'>Title</th>
-                                                <th scope='col' class='px-6 py-4'>Post date</th>
-                                                <th scope='col' class='px-6 py-4'>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr class='border-b dark:border-neutral-500'>
-                                                <td class='whitespace-nowrap px-6 py-4 font-medium'>1</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>Nhat Loi</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>dm DHP</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>23.4.23</td>
-                                                <td class='whitespace-nowrap px-6 py-4'><button><i
-                                                            class='fa-regular fa-trash-can'
-                                                        ></i></button></td>
-                                            </tr>
-
+                                            {{#each posts as |item|}}
+                                                <tr class='border-b dark:border-neutral-500'>
+                                                    <td class='whitespace-nowrap px-6 py-4 font-medium'>{{item._id}}</td>
+                                                    <td class='whitespace-nowrap px-6 py-4 post-name'>{{item.owner.0.name}}</td>
+                                                    <td class='whitespace-nowrap px-6 py-4 post-title'>{{item.title}}</td>
+                                                    <td class='whitespace-nowrap px-6 py-4'>{{formatDate item.createdAt}}</td>
+                                                    <td class='whitespace-nowrap px-6 py-4 view-post'>
+                                                        <i class='fa-regular fa-eye'></i>
+                                                    </td>
+                                                    <td class="approve">
+                                                        <input
+                                                            class="h-3.5 w-8 appearance-none rounded-[0.4375rem] bg-neutral-300 before:pointer-events-none before:absolute before:h-3.5 before:w-3.5 before:rounded-full before:bg-transparent before:content-[''] after:absolute after:z-[2] after:-mt-[0.1875rem] after:h-5 after:w-5 after:rounded-full after:border-none after:bg-neutral-100 after:shadow-[0_0px_3px_0_rgb(0_0_0_/_7%),_0_2px_2px_0_rgb(0_0_0_/_4%)] after:transition-[background-color_0.2s,transform_0.2s] after:content-[''] checked:bg-primary checked:after:absolute checked:after:z-[2] checked:after:-mt-[3px] checked:after:ml-[1.0625rem] checked:after:h-5 checked:after:w-5 checked:after:rounded-full checked:after:border-none checked:after:bg-primary checked:after:shadow-[0_3px_1px_-2px_rgba(0,0,0,0.2),_0_2px_2px_0_rgba(0,0,0,0.14),_0_1px_5px_0_rgba(0,0,0,0.12)] checked:after:transition-[background-color_0.2s,transform_0.2s] checked:after:content-[''] hover:cursor-pointer focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[3px_-1px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-5 focus:after:w-5 focus:after:rounded-full focus:after:content-[''] checked:focus:border-primary checked:focus:bg-primary checked:focus:before:ml-[1.0625rem] checked:focus:before:scale-100 checked:focus:before:shadow-[3px_-1px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:bg-neutral-600 dark:after:bg-neutral-400 dark:checked:bg-primary dark:checked:after:bg-primary dark:focus:before:shadow-[3px_-1px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:before:shadow-[3px_-1px_0px_13px_#3b71ca]"
+                                                            type="checkbox"
+                                                            role="switch"
+                                                            id="flexSwitchCheckDefault" 
+                                                        />
+                                                    </td>
+                                                </tr>
+                                            {{/each}}
                                         </tbody>
                                     </table>
                                 </div>
@@ -100,7 +74,18 @@
             <div class='w-full px-4 py-6'>
                 <div class='bg-white shadow rounded-lg p-4'>
                     <h2 class='text-2xl font-bold mb-4'>Tags</h2>
-                    {{>button name='Add tag'}}
+                    {{!-- {{>button name='Add tag'}} --}}
+                    <!-- Button trigger modal -->
+            <button
+                type="button"
+                class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
+                data-te-toggle="modal"
+                data-te-target="#exampleModal"
+                data-te-ripple-init
+                data-te-ripple-color="light">
+                Add Tag
+            </button>
+
                     <div class='flex flex-col'>
                         <div class='overflow-x-auto overflow-y-auto max-h-60 sm:-mx-6 lg:-mx-8'>
                             <div class='inline-block min-w-full py-2 sm:px-6 lg:px-8'>
@@ -115,18 +100,19 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class='border-b dark:border-neutral-500'>
-                                                <td class='whitespace-nowrap px-6 py-4 font-medium'>1</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>Technology</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>23.4.23</td>
-                                                <td class='whitespace-nowrap px-6 py-4'><button><i
-                                                            class='fa-regular fa-trash-can pr-4'
-                                                        ></i></button>
-                                                    <button><i
-                                                            class='fa-regular fa-pen-to-square pr-14'
-                                                        ></i></button></td>
-                                            </tr>
-
+                                            {{#each categories as |item|}}
+                                                <tr class='border-b dark:border-neutral-500'>
+                                                    <td class='whitespace-nowrap px-6 py-4 font-medium'>{{item._id}}</td>
+                                                    <td class='whitespace-nowrap px-6 py-4'>{{item.category}}</td>
+                                                    <td class='whitespace-nowrap px-6 py-4'>25/11/2002</td>
+                                                    <td class='whitespace-nowrap px-6 py-4'><button><i
+                                                                class='fa-regular fa-trash-can pr-4'
+                                                            ></i></button>
+                                                        <button><i
+                                                                class='fa-regular fa-pen-to-square pr-14'
+                                                            ></i></button></td>
+                                                </tr>
+                                            {{/each}}
                                         </tbody>
                                     </table>
                                 </div>
@@ -154,19 +140,20 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class='border-b dark:border-neutral-500'>
-                                                <td class='whitespace-nowrap px-6 py-4 font-medium'>1</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>Nhat Loi</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>nhatloi@gmail.com</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>@23.4.23</td>
-                                                <td class='whitespace-nowrap px-6 py-4'><button><i
-                                                            class='fa-regular fa-eye pr-4'
-                                                        ></i></button><button><i
-                                                            class='fa-solid fa-lock pr-4'
-                                                        ></i></button>
-                                                </td>
-                                            </tr>
-
+                                            {{#each users as |item|}}
+                                                <tr class='border-b dark:border-neutral-500'>
+                                                    <td class='whitespace-nowrap px-6 py-4 font-medium'>{{item._id}}</td>
+                                                    <td class='whitespace-nowrap px-6 py-4'>{{item.name}}</td>
+                                                    <td class='whitespace-nowrap px-6 py-4'>{{item.email}}</td>
+                                                    <td class='whitespace-nowrap px-6 py-4'>{{formatDate item.createdAt}}</td>
+                                                    <td class='whitespace-nowrap px-6 py-4'><button><i
+                                                                class='fa-regular fa-eye pr-4'
+                                                            ></i></button><button><i
+                                                                class='fa-solid fa-lock pr-4'
+                                                            ></i></button>
+                                                    </td>
+                                                </tr>
+                                            {{/each}}
                                         </tbody>
                                     </table>
                                 </div>
@@ -194,18 +181,20 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class='border-b dark:border-neutral-500'>
-                                                <td class='whitespace-nowrap px-6 py-4 font-medium'>1</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>Nhat Loi</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>nhatloi@gmail.com</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>@23.4.23</td>
-                                                <td class='whitespace-nowrap px-6 py-4'><button><i
-                                                            class='fa-regular fa-eye pr-4'
-                                                        ></i></button><button><i
-                                                            class='fa-solid fa-unlock pr-4'
-                                                        ></i></button>
-                                                </td>
-                                            </tr>
+                                            {{#each blockedUsers as |item|}}
+                                                <tr class='border-b dark:border-neutral-500'>
+                                                    <td class='whitespace-nowrap px-6 py-4 font-medium'>{{item._id}}</td>
+                                                    <td class='whitespace-nowrap px-6 py-4'>{{item.name}}</td>
+                                                    <td class='whitespace-nowrap px-6 py-4'>{{item.email}}</td>
+                                                    <td class='whitespace-nowrap px-6 py-4'>{{formatDate item.createdAt}}</td>
+                                                    <td class='whitespace-nowrap px-6 py-4'><button><i
+                                                                class='fa-regular fa-eye pr-4'
+                                                            ></i></button><button><i
+                                                                class='fa-solid fa-unlock pr-4'
+                                                            ></i></button>
+                                                    </td>
+                                                </tr>
+                                            {{/each}}
 
                                         </tbody>
                                     </table>
@@ -218,7 +207,7 @@
 
             <div class='w-full px-4 py-6'>
                 <div class='bg-white shadow rounded-lg p-4'>
-                    <h2 class='text-2xl font-bold mb-4'>Staffs</h2>
+                    <h2 class='text-2xl font-bold mb-4'>Administrator</h2>
                     {{>button name='Add staff'}}
                     <div class='flex flex-col'>
                         <div class='overflow-x-auto overflow-y-auto max-h-60 sm:-mx-6 lg:-mx-8'>
@@ -235,21 +224,22 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class='border-b dark:border-neutral-500'>
-                                                <td class='whitespace-nowrap px-6 py-4 font-medium'>1</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>Nhat Loi</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>Post staff</td>
-                                                <td class='whitespace-nowrap px-6 py-4'>23.4.23</td>
-                                                <td class='whitespace-nowrap px-6 py-4'><button><i
-                                                            class='fa-regular fa-eye pr-4'
-                                                        ></i></button><button><i
-                                                            class='fa-regular fa-pen-to-square pr-4'
-                                                        ></i></button><button><i
-                                                            class='fa-regular fa-trash-can pr-4'
-                                                        ></i></button>
-                                                </td>
-                                            </tr>
-
+                                            {{#each employees as |item|}}
+                                                <tr class='border-b dark:border-neutral-500'>
+                                                    <td class='whitespace-nowrap px-6 py-4 font-medium'>{{item._id}}</td>
+                                                    <td class='whitespace-nowrap px-6 py-4'>{{item.name}}</td>
+                                                    <td class='whitespace-nowrap px-6 py-4'>{{item.Role}}</td>
+                                                    <td class='whitespace-nowrap px-6 py-4'>{{formatDate item.createdAt}}</td>
+                                                    <td class='whitespace-nowrap px-6 py-4'><button><i
+                                                                class='fa-regular fa-eye pr-4'
+                                                            ></i></button><button><i
+                                                                class='fa-regular fa-pen-to-square pr-4'
+                                                            ></i></button><button><i
+                                                                class='fa-regular fa-trash-can pr-4'
+                                                            ></i></button>
+                                                    </td>
+                                                </tr>
+                                            {{/each}}
                                         </tbody>
                                     </table>
                                 </div>
@@ -262,10 +252,8 @@
     </div>
     <button
         id='btn-back-to-top'
-        type='button'
-        data-te-ripple-init
         data-te-ripple-color='light'
-        class='fixed bottom-5 left-5 inline-block rounded-full bg-danger p-2 uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#dc4c64] transition duration-150 ease-in-out hover:bg-danger-600 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)]'
+        class='fixed bottom-5 left-5 inline-block invisible rounded-full bg-danger p-2 uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#dc4c64] transition duration-150 ease-in-out hover:bg-danger-600 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)]'
     >
         <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -284,4 +272,91 @@
             />
         </svg>
     </button>
+
+    <!-- Modal -->
+    <div
+        data-te-modal-init
+        class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+    <div
+            data-te-modal-dialog-ref
+            class="pointer-events-none relative w-auto translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]">
+        <div
+            class="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
+        <div
+            class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+            <!--Modal title-->
+            <h5
+                class="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200"
+                id="exampleModalLabel">
+                Modal title
+            </h5>
+            <!--Close button-->
+            <button
+                type="button"
+                class="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                data-te-modal-dismiss
+                aria-label="Close">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-6 w-6">
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            </button>
+        </div>
+
+        <!--Modal body-->
+        <input type="text" name="new-tag">
+
+        <!--Modal footer-->
+        <div
+            class="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+            <button
+                type="button"
+                class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200"
+                data-te-modal-dismiss
+                data-te-ripple-init
+                data-te-ripple-color="light">
+                Close
+            </button>
+            <button
+                id="save-button"
+                type="button"
+                class="ml-1 inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                data-te-ripple-init
+                data-te-ripple-color="light">
+                Save changes
+            </button>
+        </div>
+        </div>
+    </div>
+    </div>
 </div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    const newTagButton = document.querySelector('#save-button');
+    newTagButton.addEventListener('click', async () => {
+        const category = document.querySelector("input[name='new-tag']").value;
+        await fetch(`http://localhost:3000/admin/tags`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ category }),
+        }).then(() => {
+            swal({
+                title: 'Great! 😘',
+                text: 'You have created a new tag successfully',
+                icon: 'success',
+            });
+        });
+    });
+</script>

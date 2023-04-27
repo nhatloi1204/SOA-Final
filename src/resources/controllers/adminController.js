@@ -3,6 +3,8 @@ const userModel = require('../models/userModel');
 const tagModel = require('../models/categoryModel');
 const postModel = require('../models/postModel');
 const jwt = require('jsonwebtoken');
+const categoryModel = require('../models/categoryModel');
+const employeeModel = require('../models/employeeModel');
 
 const createToken = (user) => {
     return jwt.sign({ _id: user._id, name: user.name, email: user.email }, process.env.SECRET, { expiresIn: '10h' });
@@ -29,9 +31,9 @@ const login = async (req, res) => {
         //! JWT will useful for protecting API
         //! In term of browser, we only need req.session.user
         req.session.token = token;
-        req.session.user = user;
+        req.session.adminUser = user;
 
-        console.log(req.session.user, req.session.token);
+        console.log(req.session.adminUser, req.session.token);
 
         return res.redirect('/admin/dashboard');
     } catch (error) {
@@ -42,7 +44,20 @@ const login = async (req, res) => {
 const homePage = async (req, res) => {
     //! list everything in this page
     try {
-        return res.render('admin/home', { layout: 'admin', user: req.session.user });
+        const posts = await postModel.find({ approval: false }).populate('owner').lean();
+        const categories = await categoryModel.find({}).lean();
+        const users = await userModel.find({}).lean();
+        const blockedUsers = await userModel.find({block: true}).lean();
+        const employees = await employeeModel.find({}).lean();
+        return res.render('admin/home', {
+            layout: 'admin',
+            user: req.session.user,
+            posts,
+            categories,
+            users,
+            blockedUsers,
+            employees,
+        });
     } catch (error) {
         res.status(500).render('505page');
     }
@@ -93,8 +108,7 @@ const createTag = async (req, res) => {
 const updateApproveStatus = async (req, res) => {
     try {
         const { id } = req.params;
-        const status = req.query.approval;
-        const data = await postModel.findByIdAndUpdate(id, { approval: status }, { new: true });
+        const data = await postModel.findByIdAndUpdate(id, { approval: true }, { new: true });
         return res.status(200).json(data);
     } catch (error) {
         res.status(500).json(error.message);

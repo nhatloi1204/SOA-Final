@@ -1,8 +1,9 @@
-const router = require('express').Router();
-const { userControllers } = require('../controllers');
-const passport = require('passport');
-const { requireAuth } = require('../middleware/authenticatedCheck');
 const jwt = require('jsonwebtoken');
+const router = require('express').Router();
+const passport = require('passport');
+const uploadFile = require('../middleware/uploadFile');
+const { requireAuth } = require('../middleware/authenticatedCheck');
+const { userControllers } = require('../controllers');
 
 const createToken = (user) => {
     return jwt.sign({ _id: user._id, name: user.name, email: user.email }, process.env.SECRET, { expiresIn: '10h' });
@@ -35,14 +36,13 @@ router.use(requireAuth);
 
 router.get('/page/profile', userControllers.profilePage);
 
-//! router.get('page/changePass', userControllers.changePassPage);
-
 router.get('/page/new-story', userControllers.newStoryPage);
-router.post('/publish', userControllers.publishPost);
+router.post('/publish', uploadFile.single('thumbnail'), userControllers.publishPost);
 
 router.get('/page/:userID/saved', userControllers.bookmarkedPage);
 router.get('/page/:userID/following', userControllers.followUserPage);
 router.get('/:ownerName/:postTitle', userControllers.getSinglePost);
+
 
 
 module.exports = router;

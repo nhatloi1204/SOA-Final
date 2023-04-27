@@ -15,6 +15,7 @@ const { userRoutes, adminRoutes } = require('./resources/routes');
 //* middleware
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'upload')));
 app.use(
     cors({
         origin: 'http://localhost:3000',
@@ -52,8 +53,10 @@ app.engine(
             },
 
             //* transform post title
-            transformTitle: (title) => {
-                return title.replace(' ', '-');
+            transformTitle: (options) => {
+                var title = options.hash.title.replace(' ', '-');
+                var name = options.hash.name.replace(' ', '-');
+                return `http://localhost:3000/${name}/${title}`;
             },
         },
         handlebars: allowInsecurePrototypeAccess(Handlebars),

@@ -6,6 +6,7 @@ const bookmarkPostModel = require('../models/bookmarkPostModel');
 const commentModel = require('../models/commentsModel');
 const jwt = require('jsonwebtoken');
 const followUserModel = require('../models/followUserModel');
+const categoryModel = require('../models/categoryModel');
 
 const createToken = (user) => {
     return jwt.sign({ _id: user._id, name: user.name, email: user.email }, process.env.SECRET, { expiresIn: '10h' });
@@ -14,7 +15,7 @@ const createToken = (user) => {
 const homePage = async (req, res) => {
     try {
         //! find only those post"s approval is true
-        const posts = await postModel.find({}).populate('owner').lean();
+        const posts = await postModel.find({ approval: true }).populate('owner').lean();
         return res.render('user/home', { user: req.session.user, posts });
     } catch (error) {
         res.status(500).json(error.message);
@@ -84,7 +85,8 @@ const changePassPage = async (req, res) => {
 
 const newStoryPage = async (req, res) => {
     try {
-        return res.render('user/story');
+        const categories = await categoryModel.find({}).lean();
+        return res.render('user/story', { categories });
     } catch (error) {
         return res.status(500).json(error.message);
     }
@@ -94,25 +96,32 @@ const getSinglePost = async (req, res) => {
     //! one to get post's content and one to get all comments of that post
     //! by take the ID of the first result the take it and populate in comment db
     try {
-        const { ownerName, postTitle } = req.query;
-        const post = await postModel.findOne({ name: ownerName, title: postTitle }).lean();
-        const comments = await commentModel.find({ postID: post._id }).populate('postID').lean();
-        return res.status(200).json(post, comments);
+        const { ownerName, postTitle } = req.params;
+        const post = await postModel
+            .findOne({ name: ownerName, title: postTitle.replace('-', ' ') })
+            .populate('owner')
+            .lean();
+        // const comments = await commentModel.find({ postID: post._id }).populate('postID').lean();
+        return res.status(200).render('user/detailPost', { post });
     } catch (error) {
         return res.status(500).json(error.message);
     }
 };
+
 const publishPost = async (req, res) => {
     //! remember to make the title lowercase
     //! so we can find it in db using req.query
     try {
-        const { owner, title, category, content, thumbnail } = req.body;
+        const image = req.file;
+        const thumbnail = `${image?.filename}`;
+        const { owner, title, category, content } = req.body;
         const data = await postModel.create({ owner, title: title.toLowerCase(), category, content, thumbnail });
-        return res.status(200).json(data);
+        return res.json(data);
     } catch (error) {
         return res.status(500).json(error.message);
     }
 };
+
 const postComment = async (req, res) => {
     try {
         const { commentatorID, postID, content } = req.body;

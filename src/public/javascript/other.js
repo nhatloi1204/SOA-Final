@@ -1,3 +1,5 @@
+import { qs } from '../utils/domUtils';
+
 // * Upload file avatar preview
 export function uploadAvatar() {
     const image = document.getElementById('avatarImg'),
@@ -7,25 +9,19 @@ export function uploadAvatar() {
     });
 }
 
-// Get the button
-let myButton = document.getElementById('btn-back-to-top');
-
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function () {
-    scrollFunction();
-};
-
 export function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        myButton.style.display = 'block';
-    } else {
-        myButton.style.display = 'none';
-    }
-}
-// When the user clicks on the button, scroll to the top of the document
-myButton.addEventListener('click', backToTop);
+    const myButton = qs('#btn-back-to-top');
+    if (window.scrollY > 100) {
+        const myButton = qs('#btn-back-to-top');
+        $(myButton).removeClass('invisible');
+        $(myButton).addClass('visible');
 
-export function backToTop() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+        $(myButton).click(() => {
+            document.body.scrollIntoView({
+                behavior: 'smooth',
+            });
+        });
+    } else {
+        $(myButton).addClass('invisible');
+    }
 }
