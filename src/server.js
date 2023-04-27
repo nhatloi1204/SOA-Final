@@ -54,9 +54,11 @@ app.engine(
 
             //* transform post title
             transformTitle: (options) => {
-                var title = options.hash.title.replace(' ', '-');
-                var name = options.hash.name.replace(' ', '-');
-                return `http://localhost:3000/${name}/${title}`;
+                if (options) {
+                    const title = options.hash.title.replace(' ', '-');
+                    const name = options.hash.name.replace(' ', '-');
+                    return `http://localhost:3000/${name}/${title}`;
+                }
             },
         },
         handlebars: allowInsecurePrototypeAccess(Handlebars),

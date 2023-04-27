@@ -4,13 +4,18 @@ import { scrollFunction } from './other.js';
 
 $(document).ready(() => {
     // * handle login functionality
-    $("form[id='login']").submit((e) => {
+    $("form[id='login']").submit(async (e) => {
         e.preventDefault();
         console.log('hhh');
         const form = new FormData(e.target);
         const email = form.get('email');
         const password = form.get('password');
-        loginFetch(email, password);
+        await loginFetch(email, password);
+
+        setTimeout(() => {
+            $('.replace-header').html(`<strong> ⚠ Hello World </strong>`);
+            console.log('done');
+        }, 6000);
     });
 
     // * handle register functionality
